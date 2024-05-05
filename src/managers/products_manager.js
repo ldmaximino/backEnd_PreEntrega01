@@ -13,7 +13,7 @@ export default class ProductManager {
         return JSON.parse(products);
       } else return [];
     } catch (error) {
-      return { status: "Error", msg: error };
+      throw new Error(error);
     }
   }
 
@@ -24,7 +24,7 @@ export default class ProductManager {
       if (!productExist) return null;
       return productExist;
     } catch (error) {
-      return { status: "Error", msg: error };
+      throw new Error(error);
     }
   }
 
@@ -33,12 +33,12 @@ export default class ProductManager {
       const product = { id: uuidv4(), ...obj, status: true }; // status se define por defecto como true porque en la consigna decía 'Status es true por defecto'
       const products = await this.getProducts();
       const productExist = products.find((prod) => prod.code === product.code);
-      if (productExist) return "Product already exists";
+      if (productExist) return {msg: "Product already exists"};
       products.push(product);
       await fs.promises.writeFile(this.path, JSON.stringify(products));
       return {status: 'Product added', product: product};
     } catch (error) {
-      return { status: "Error", msg: error };
+      throw new Error(error);
     }
   }
 
@@ -46,14 +46,14 @@ export default class ProductManager {
     try {
       const products = await this.getProducts();
       let productExist = await this.getProductById(pid);
-      if (!productExist) return `ID Product ${pid} does not exist`;
+      if (!productExist) return {msg:`ID Product ${pid} does not exist`};
       const newProducts = products.filter((prod) => prod.id !== pid);
       productExist = { ...productExist, ...obj };
       newProducts.push(productExist);
       await fs.promises.writeFile(this.path, JSON.stringify(newProducts));
       return {status: 'Product updated', product: productExist};
     } catch (error) {
-      return { status: "Error", msg: error };
+      throw new Error(error);
     }
   }
 
@@ -62,13 +62,13 @@ export default class ProductManager {
       const products = await this.getProducts();
       if (products.length > 0) {
         let productExist = await this.getProductById(pid);
-        if (!productExist) return `ID Product ${pid} does not exist`;
+        if (!productExist) return {msg:`ID Product ${pid} does not exist`};
         const newProducts = products.filter((prod) => prod.id !== pid);
         await fs.promises.writeFile(this.path, JSON.stringify(newProducts));
         return {status: 'Product deleted', product: productExist};
-      } else return null;
+      } else return {msg:`Product not found`};
     } catch (error) {
-      return { status: "Error", msg: error };
+      throw new Error(error);
     }
   }
 }

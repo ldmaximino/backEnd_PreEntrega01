@@ -1,4 +1,4 @@
-export const inputValidator = (req, res, next) => {
+export const productValidator = (req, res, next) => {
     if(!req.body.title) return res.status(404).json({msg: 'The title field is required'});
     if(!req.body.description) return res.status(404).json({msg: 'The description field is required'});
     if(!req.body.code) return res.status(404).json({msg: 'The code field is required'});

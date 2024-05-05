@@ -1,39 +1,30 @@
 [
     {
-        "id": "e8350a32-766a-4608-90e8-597fff595ded",
+        "id": "acaa8c7b-cbbc-4b60-b036-b5328cbf2685",
         "products": [
             {
-                "product": "d5c1da67-bdf1-4596-b475-80887c6968d2",
-                "quantity": 3
-            },
-            {
-                "product": "4301853c-3b43-498e-905f-03801aeb1348",
-                "quantity": 6
-            }
-        ]
-    },
-    {
-        "id": "27a2e859-48a6-4fa2-aeeb-9101c927ad00",
-        "products": [
-            {
-                "product": "8033495d-8437-497d-a4b6-8e7196961685",
+                "product": "af3f87c8-a66f-4df3-a48b-cade9c32b42a",
                 "quantity": 2
+            },
+            {
+                "product": "28b5d351-edb1-4481-8972-358319e702a0",
+                "quantity": 1
             }
         ]
     },
     {
-        "id": "902e9de2-7692-49d6-be87-db0805a51b8e",
-        "products": []
-    },
-    {
-        "id": "24dbbd07-e44b-4e88-9308-b34184b8fb5e",
+        "id": "b6f154b2-fd32-448b-b96b-d38451499631",
         "products": [
             {
-                "product": "4a70350c-294c-4faf-a224-ffcfd7754c16",
-                "quantity": 4
+                "product": "af3f87c8-a66f-4df3-a48b-cade9c32b42a",
+                "quantity": 2
             },
             {
-                "product": "8033495d-8437-497d-a4b6-8e7196961685",
+                "product": "28b5d351-edb1-4481-8972-358319e702a0",
+                "quantity": 1
+            },
+            {
+                "product": "e092d2ac-a2b3-4694-b1d7-72df290c106e",
                 "quantity": 1
             }
         ]
